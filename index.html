@@ -10,13 +10,55 @@
         <link rel="stylesheet" href="css/normalize.min.css">
         <link rel="stylesheet" href="css/main.css">
 
+        <style>
+
+        /** the form elements **/
+        #hongkiat-form { box-sizing: border-box; }
+
+        #hongkiat-form .txtinput { 
+          display: block;
+          font-family: "Helvetica Neue", Arial, sans-serif;
+          border-style: solid;
+          border-width: 1px;
+          border-color: #dedede;
+          margin-bottom: 10px;
+          font-size: 1.0em;
+          padding: 11px 5px;
+          padding-left: 25px;
+          width: 90%;
+          color: #777;
+          
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) inset;
+          -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) inset;
+          -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) inset; 
+          
+          transition: border 0.15s linear 0s, box-shadow 0.15s linear 0s, color 0.15s linear 0s;
+          -webkit-transition: border 0.15s linear 0s, box-shadow 0.15s linear 0s, color 0.15s linear 0s;
+          -moz-transition: border 0.15s linear 0s, box-shadow 0.15s linear 0s, color 0.15s linear 0s;
+          -o-transition: border 0.15s linear 0s, box-shadow 0.15s linear 0s, color 0.15s linear 0s;
+        }
+
+        #hongkiat-form .txtinput:focus { 
+          color: #333;
+          border-color: rgba(41, 92, 161, 0.4);
+          
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) inset, 0 0 8px rgba(41, 92, 161, 0.6);
+          -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) inset, 0 0 8px rgba(41, 92, 161, 0.6);
+          -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) inset, 0 0 8px rgba(41, 92, 161, 0.6);
+          outline: 0 none; 
+        }
+
+
+        </style>
+
         <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
     </head>
     <body>
 
         <div class="header-container">
             <header class="wrapper clearfix">
-                <h1 class="title">h1.title</h1>
+                <h1 class="title">Application for Information under the Right to Information Act, 2005</h1>
+                <!--
                 <nav>
                     <ul>
                         <li><a href="#">nav ul li a</a></li>
@@ -24,17 +66,40 @@
                         <li><a href="#">nav ul li a</a></li>
                     </ul>
                 </nav>
+                -->
             </header>
         </div>
 
         <div class="main-container">
             <div class="main wrapper clearfix">
-
                 <article>
-                    <header>
-                        <h1>article header h1</h1>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales urna non odio egestas tempor. Nunc vel vehicula ante. Etiam bibendum iaculis libero, eget molestie nisl pharetra in. In semper consequat est, eu porta velit mollis nec.</p>
-                    </header>
+
+                    <form name="hongkiat" id="hongkiat-form" method="post" action="#">  
+                        <header>
+                            <h2>From</h2>
+                        </header>
+                        <section id="aligned">  
+                            <input type="text" name="txtName" id="txtName" placeholder="Your name" autocomplete="off" tabindex="1" class="txtinput">  
+                            <input type="text" name="txtAddress1" id="txtAddress1" placeholder="Your address" autocomplete="off" tabindex="2" class="txtinput">  
+                            <input type="text" name="txtAddress2" id="txtAddress2" placeholder="Your address" autocomplete="off" tabindex="3" class="txtinput">  
+                            <input type="text" name="txtAddress3" id="txtAddress3" placeholder="Your address" autocomplete="off" tabindex="4" class="txtinput">  
+                        </section>  
+                        <header>
+                            <h2>To</h2>
+                        </header>
+                        <section id="aligned">  
+                            <input type="text" name="txtname" id="name" placeholder="Your name" autocomplete="off" tabindex="10" class="txtinput">  
+                            <input type="email" name="txtemail" id="email" placeholder="Your e-mail address" autocomplete="off" tabindex="11" class="txtinput">  
+                            <input type="url" name="txtwebsite" id="website" placeholder="Website URL" autocomplete="off" tabindex="12" class="txtinput">  
+                            <input type="tel" name="txttelephone" id="telephone" placeholder="Phone number?(optional)" tabindex="13" class="txtinput">  
+                        </section>  
+                        <section id="buttons">  
+                            <input type="reset" name="reset" id="resetbtn" class="resetbtn" value="Reset">  
+                            <input type="submit" name="submit" id="submitbtn" class="submitbtn" tabindex="7" value="Submit this!">  
+                            <br style="clear:both;">  
+                        </section>  
+                    </form>  
+
                     <section>
                         <h2>article section h2</h2>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam sodales urna non odio egestas tempor. Nunc vel vehicula ante. Etiam bibendum iaculis libero, eget molestie nisl pharetra in. In semper consequat est, eu porta velit mollis nec. Curabitur posuere enim eget turpis feugiat tempor. Etiam ullamcorper lorem dapibus velit suscipit ultrices. Proin in est sed erat facilisis pharetra.</p>
