@@ -184,7 +184,7 @@
                         <h2>To</h2>
                         <section id="aligned">  
                             <input type="text" name="txtPIODesignation" id="txtPIODesignation" placeholder="Designation of the PIO" autocomplete="off" tabindex="10" class="txtinput">  
-                            <input type="text" name="txtPIOOfficer" id="txtPIOOffice" placeholder="Office of Public Authority" autocomplete="off" tabindex="11" class="txtinput">  
+                            <input type="text" name="txtPIOOffice" id="txtPIOOffice" placeholder="Office of Public Authority" autocomplete="off" tabindex="11" class="txtinput">  
                             <input type="text" name="txtPIOAddress1" id="txtPIOAddress1" placeholder="Address 1 of PIO" autocomplete="off" tabindex="12" class="txtinput">  
                             <input type="text" name="txtPIOAddress2" id="txtPIOAddress2" placeholder="Address 2 of PIO" autocomplete="off" tabindex="13" class="txtinput">  
                             <input type="text" name="txtPIOCity" id="txtPIOCity" placeholder="City of PIO" autocomplete="off" tabindex="14" class="txtinput">  
@@ -237,7 +237,7 @@
 
                 </article>
 
-                <aside>
+                <aside id="tipContainer">
                     <h3>Tip</h3>
                     <p id="tipText">You should be a Citizen of India to file RTI application.</p>
                 </aside>
@@ -268,26 +268,55 @@
 
                 $( "#txtName" ).focus(function() {
                     $( "#tipText" ).text("You should be a Citizen of India to file RTI Application");
-                    console.log("name");
+                    $( "#tipContainer" ).offset({top: $(this).offset().top});
                 });
 
                 $( "#txtAddress1" ).focus(function() {
                     $( "#tipText" ).text("Enter your address");
-                    console.log("address 1");
+                    $( "#tipContainer" ).offset({top: $(this).offset().top});
                 });
 
                 $( "#txtAddress2" ).focus(function() {
                     $( "#tipText" ).text("Enter your address Line 2");
+                    $( "#tipContainer" ).offset({top: $(this).offset().top});
                     console.log("address 2");
                 });
 
                 $( "#txtCity" ).focus(function() {
                     $( "#tipText" ).text("Enter your city");
+                    $( "#tipContainer" ).offset({top: $(this).offset().top});
                 });
 
                 $( "#txtState" ).focus(function() {
                     $( "#tipText" ).text("Enter your State");
+                    $( "#tipContainer" ).offset({top: $(this).offset().top});
                 });
+
+                $( "#txtPIODesignation" ).focus(function() {
+                    $( "#tipText" ).text("Every Government officer has an officer appointed with designation Public Information Officer, whose responsibility is to reply to RTI applications. The Designation of the PIO can be found by visiting the corresponding Public Authority's web site and probing for link title 'RTI Contacts");
+                    $( "#tipContainer" ).offset({top: $(this).offset().top});
+                });
+
+                $( "#txtPIOOffice" ).focus(function() {
+                    $( "#tipText" ).text("Name of the office, Eg., Corporation of Chennai, TN Pollution Control Board, BSNL Office, etc.,");
+                    $( "#tipContainer" ).offset({top: $(this).offset().top});
+                });
+
+                $( "#txtPIOAddress1" ).focus(function() {
+                    $( "#tipText" ).text("Address 1");
+                    $( "#tipContainer" ).offset({top: $(this).offset().top});
+                });
+
+                $( "#txtPIOAddress2" ).focus(function() {
+                    $( "#tipText" ).text("Address 2");
+                    $( "#tipContainer" ).offset({top: $(this).offset().top});
+                });
+
+                $( "#txtPIOCity" ).focus(function() {
+                    $( "#tipText" ).text("City of the PIO's office");
+                    $( "#tipContainer" ).offset({top: $(this).offset().top});
+                });
+
             });
         </script>
 
