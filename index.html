@@ -178,8 +178,10 @@
                             <input type="text" name="txtName" id="txtName" placeholder="Your name" autocomplete="off" tabindex="1" class="txtinput" autofocus>
                             <input type="text" name="txtAddress1" id="txtAddress1" placeholder="Your Address 1" autocomplete="off" tabindex="2" class="txtinput">  
                             <input type="text" name="txtAddress2" id="txtAddress2" placeholder="Your Address 2" autocomplete="off" tabindex="3" class="txtinput">  
-                            <input type="text" name="txtCity" id="txtCity" placeholder="Your City" autocomplete="off" tabindex="4" class="txtinput">  
-                            <input type="text" name="txtState" id="txtState" placeholder="Your State" autocomplete="off" tabindex="5" class="txtinput">  
+                            <input type="text" name="txtCity" id="txtCity" placeholder="Your City" autocomplete="off" tabindex="4" class="txtinput" style="width:30%; float:left;">  
+                            <input type="text" name="txtState" id="txtState" placeholder="Your State" autocomplete="off" tabindex="5" class="txtinput" style="width:30%; float:left; margin-left:2%">  
+                            <input type="text" name="txtPIN" id="txtPIN" placeholder="Your PIN Code" autocomplete="off" tabindex="6" class="txtinput" style="width:18%; float:left; margin-left:2%"> 
+                            <br />
                         </section>  
 
                         <h2>To</h2>
@@ -188,8 +190,10 @@
                             <input type="text" name="txtPIOOffice" id="txtPIOOffice" placeholder="Office of Public Authority" autocomplete="off" tabindex="11" class="txtinput">  
                             <input type="text" name="txtPIOAddress1" id="txtPIOAddress1" placeholder="Address 1 of PIO" autocomplete="off" tabindex="12" class="txtinput">  
                             <input type="text" name="txtPIOAddress2" id="txtPIOAddress2" placeholder="Address 2 of PIO" autocomplete="off" tabindex="13" class="txtinput">  
-                            <input type="text" name="txtPIOCity" id="txtPIOCity" placeholder="City of PIO" autocomplete="off" tabindex="14" class="txtinput">  
-                            <input type="text" name="txtPIOState" id="txtPIOState" placeholder="State of PIO" autocomplete="off" tabindex="15" class="txtinput">  
+                            <input type="text" name="txtPIOCity" id="txtPIOCity" placeholder="City of PIO" autocomplete="off" tabindex="14" class="txtinput" style="width:30%; float:left">  
+                            <input type="text" name="txtPIOState" id="txtPIOState" placeholder="State of PIO" autocomplete="off" tabindex="15" class="txtinput" style="width:30%; float:left; margin-left:2%">  
+                            <input type="text" name="txtPIOPIN" id="txtPIOPIN" placeholder="Pincode" autocomplete="off" tabindex="16" class="txtinput" style="width:18%; float:left; margin-left:2%">  
+                            <br />
                         </section>  
 
                         <h2>Subject matter of the Information</h2>
@@ -202,13 +206,23 @@
                             <input type="text" name="txtPeriod" id="txtPeriod" placeholder="2010 to 2012" autocomplete="off" tabindex="25" class="txtinput">  
                         </section>  
 
-                        <h2>Description of Information required</h2>
+                        <h2>Related detail</h2>
                         <section id="aligned">  
+                            <textarea rows=4 name="txtDetail" id="txtDetail" placeholder="I have an EPF account with my previous employer XYZ company based in Bangalore. I applied for withdrawal of my EPF account on dd/mm/yy, but I have been waiting for 2 yrs now. I would like to know the following things." autocomplete="off" tabindex="26" class="txtinput" ></textarea> 
+                        </section>  
+
+                        <h2>Description of Information required</h2>
+                        <section id="infoList">  
                             <input type="text" name="txtInfo1" id="txtInfo1" placeholder="Name and Designation of the officer who is handling my complaint" autocomplete="off" tabindex="30" class="txtinput txtInformation">  
                             <input type="text" name="txtInfo2" id="txtInfo2" placeholder="Certified copy of Acknowledgement letter given to me, as per G.O. 114" autocomplete="off" tabindex="31" class="txtinput txtInformation">  
                             <input type="text" name="txtInfo3" id="txtInfo3" placeholder="Provide the action taken report on my complaint" autocomplete="off" tabindex="32" class="txtinput txtInformation">  
                             <input type="text" name="txtInfo4" id="txtInfo4" placeholder="Provide the documents / letters sent to other authorities to resolve my complaint" autocomplete="off" tabindex="33" class="txtinput txtInformation">  
                             <input type="text" name="txtInfo5" id="txtInfo5" placeholder="Whom should I complain to in case I am not satisfied with the action taken on my complaint" autocomplete="off" tabindex="34" class="txtinput txtInformation">  
+                            <input type="text" name="txtInfo6" id="txtInfo6" placeholder="Whom should I complain to in case I am not satisfied with the action taken on my complaint" autocomplete="off" tabindex="34" class="txtinput txtInformation">  
+                            <input type="text" name="txtInfo7" id="txtInfo7" placeholder="Whom should I complain to in case I am not satisfied with the action taken on my complaint" autocomplete="off" tabindex="34" class="txtinput txtInformation">  
+                            <input type="text" name="txtInfo8" id="txtInfo8" placeholder="Whom should I complain to in case I am not satisfied with the action taken on my complaint" autocomplete="off" tabindex="34" class="txtinput txtInformation">  
+                            <input type="text" name="txtInfo9" id="txtInfo9" placeholder="Whom should I complain to in case I am not satisfied with the action taken on my complaint" autocomplete="off" tabindex="34" class="txtinput txtInformation">  
+                            <input type="text" name="txtInfo10" id="txtInfo10" placeholder="Whom should I complain to in case I am not satisfied with the action taken on my complaint" autocomplete="off" tabindex="34" class="txtinput txtInformation">  
                         </section>  
 
                         <h2>Whether the applicant claims exemption as below poverty line family</h2>
@@ -221,7 +235,7 @@
 
                         <h2>RTI Application charge</h2>
                         <section id="aligned">  
-                            <input type="radio" name="radioFee" id="radioFeePostalOrder" tabindex="81">  
+                            <input type="radio" name="radioFee" id="radioFeePostalOrder" tabindex="85">  
                             <label for="radioFeePostalOrder">Postal Order</label>
                             <input type="radio" name="radioFee" id="radioFeeCourtFee" checked ="checked">  
                             <label for="radioFeeCourtFee">Court Fee Stamp</label>
@@ -231,7 +245,7 @@
 
                         <section id="buttons" style="margin-top: 20px">  
                             <input type="submit" name="btnGenerate" id="btnGenerate" class="submitbtn" tabindex="100" value="Generate">  
-                            <input type="reset" name="reset" id="resetbtn" class="resetbtn" value="Reset" tabindex="101">  
+                            <input type="reset" name="reset" id="resetbtn" class="resetbtn" value="Reset" tabindex="-1">  
                             <br style="clear:both;">  
                         </section>  
                     </form>  
@@ -267,86 +281,9 @@
 
         <script>
             $( document ).ready(function() {
-
-                $( "#txtName" ).focus(function() {
-                    $( "#tipText" ).text("You should be a Citizen of India to file RTI Application. Organisations, Private / Public Companies can't file RTI");
-                    $( "#tipContainer" ).offset({top: $(this).offset().top});
+                $.getScript('rtiLogic.js', function() {
+                    setup();
                 });
-
-                $( "#txtAddress1" ).focus(function() {
-                    $( "#tipText" ).text("Enter your address");
-                    $( "#tipContainer" ).offset({top: $(this).offset().top});
-                });
-
-                $( "#txtAddress2" ).focus(function() {
-                    $( "#tipText" ).text("Enter your address Line 2");
-                    $( "#tipContainer" ).offset({top: $(this).offset().top});
-                    console.log("address 2");
-                });
-
-                $( "#txtCity" ).focus(function() {
-                    $( "#tipText" ).text("Enter your city");
-                    $( "#tipContainer" ).offset({top: $(this).offset().top});
-                });
-
-                $( "#txtState" ).focus(function() {
-                    $( "#tipText" ).text("Enter your State");
-                    $( "#tipContainer" ).offset({top: $(this).offset().top});
-                });
-
-                $( "#txtPIODesignation" ).focus(function() {
-                    $( "#tipText" ).text("Every Government officer has an officer appointed with designation Public Information Officer (PIO) whose responsibility is to reply to RTI applications. The Designation of the PIO can be found by visiting the corresponding Public Authority's web site and probing for link title 'RTI Contacts'. If you are not sure of the PIO, you can send it to your District Collector. Eg., Police Inspector, Under Secretary, etc., ");
-                    $( "#tipContainer" ).offset({top: $(this).offset().top});
-                });
-
-                $( "#txtPIOOffice" ).focus(function() {
-                    $( "#tipText" ).text("Name of the office, Eg., Corporation of Chennai, TN Pollution Control Board, BSNL Office, etc.,");
-                    $( "#tipContainer" ).offset({top: $(this).offset().top});
-                });
-
-                $( "#txtPIOAddress1" ).focus(function() {
-                    $( "#tipText" ).text("Address 1");
-                    $( "#tipContainer" ).offset({top: $(this).offset().top});
-                });
-
-                $( "#txtPIOAddress2" ).focus(function() {
-                    $( "#tipText" ).text("Address 2");
-                    $( "#tipContainer" ).offset({top: $(this).offset().top});
-                });
-
-                $( "#txtPIOCity" ).focus(function() {
-                    $( "#tipText" ).text("City of the PIO's office");
-                    $( "#tipContainer" ).offset({top: $(this).offset().top});
-                });
-
-                var listSubjects = ["Status of my Ration Card application dated 20-10-2013",
-                    "Status of my Passport application dated 25-11-2013",
-                    "Status of my Driving License application dated 20-08-2013"];
-
-                $( "#txtSubject" ).autocomplete({
-                    source: listSubjects,
-                    minLength: 0
-                }).focus(function() {
-                    $(this).autocomplete("search", "");
-                });
-
-                $( "#txtSubject" ).focus(function() {
-                    $( "#tipText" ).text("Select from any of the predefined template or write your own");
-                    $( "#tipContainer" ).offset({top: $(this).offset().top});
-                });
-
-                $( "#txtPeriod" ).focus(function() {
-                    $( "#tipText" ).text("Time Range. For example, 2000 to 2010; last financial year; March, 2013 to May, 2013, date of my complaint to present");
-                    $( "#tipContainer" ).offset({top: $(this).offset().top});
-                });
-
-                $( ".txtInformation" ).focus(function() {
-                    $(this).val($(this).attr("placeholder"));
-                    $( "#tipText" ).text("hiii");
-                    $( "#tipContainer" ).offset({top: $(this).offset().top});
-                });
-
-
             });
         </script>
 
