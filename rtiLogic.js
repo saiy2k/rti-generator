@@ -1,5 +1,7 @@
 function setup() {
 
+    console.log("setup");
+
     $( "#txtName" ).focus(function() {
         $( "#tipText" ).text("You should be a Citizen of India to file RTI Application. Organisations, Private / Public Companies can't file RTI");
         $( "#tipContainer" ).offset({top: $(this).offset().top - 100});
@@ -169,13 +171,10 @@ function setup() {
         $( "#tipContainer" ).offset({top: $(this).offset().top - 100});
     });
 
-    //$( "#rtiGenerated" ).dialog({autoOpen: false});
-
     $( "#btnGenerate" ).click(function() {
         generate();
     }); 
 
-    //generate();
 };
 
 function updateQuestions(index) {
@@ -184,16 +183,19 @@ function updateQuestions(index) {
         $( "#txtDetail" ).attr("placeholder", listDetails[index]);
 
         for (i = 0; i < listQuestions[index].length; i++) {
+            $( "#txtInfo" + (i+1) ).val("");
             $( "#txtInfo" + (i+1) ).attr("placeholder", listQuestions[index][i]);
         }
 
         for (i = i; i < 10; i++) {
+            $( "#txtInfo" + (i+1) ).val("");
             $( "#txtInfo" + (i+1) ).attr("placeholder", "");
         }
 
 };
 
 function generate() {
+    console.log("generate");
     var otherWindow             =   window.open("", "_blank");
     otherWindow.document.write("<!DOCTYPE html><html><body>")
     otherWindow.document.write("<h3><center>Application for Information under the Right to Information Act, 2005</center></h3>");
@@ -225,9 +227,9 @@ function generate() {
         if (strQues == "") {
             break;
         }
-        otherWindow.document.write($( strQues + "<br/>"));
+        otherWindow.document.write( strQues + "<br/>");
     }
-    otherWindow.document.write("RTI Application fee of Rs. 10 ");
+    otherWindow.document.write("<br/>RTI Application fee of Rs. 10 ");
 
     if ( $( "#radioFeeCourtFee" ).is(":checked") ) {
         otherWindow.document.write("is affixed as court fee Stamp");
@@ -238,7 +240,7 @@ function generate() {
     }
 
     otherWindow.document.write("<br/>");
-    otherWindow.document.write("Regards,<br/><br/><br/><br/>");
+    otherWindow.document.write("<br/>Regards,<br/><br/><br/>");
     otherWindow.document.write( $( "#txtName" ).val() );
 
     otherWindow.document.write("</body></html>");
@@ -259,7 +261,7 @@ var listQuestions = [
         "5. The above officials have not adhered to the time limit mentioned in these rules. Are these officials guilty of violating these rules and hence guilty of misconduct under their conduct rules. Please give a copy of their conduct rule, which they have violated by violating the above mentioned rule.",
         "6. These officials have caused serious mental injury to me by making me run around all this while. Are these officials guilty of causing mental harassment to the public?",
         "7. What action can be taken against these officials for violating all the above rules and for causing mental agony to the public? By when this action would be taken?",
-        "8. By when will my problem be resolved?"
+        "8. By when will my problem be resolved?",
         "9. Please provide details of First Appellate Authority under RTI Act 2005 with detailed postal and email address etc. for this RTI application.,"
     ],
     [ // MLA Development Fund
@@ -267,14 +269,14 @@ var listQuestions = [
         "2. Please provide the following details for all the works awarded during the period __________to ___________for this whole constituency out of the MLA Constituency Development Fund: a) Name of work b) Brief Description of work c) Amount sanctioned d) Date of sanction e) Status of completion f) Name of agency g) Date of start h) Date of completion i) Rate at which work awarded j) Amount paid k) Copy of sketch l) How was the decision taken to carry out this work?",
         "3. How much money was allotted to him during the current year and how much has been carried over from previous years?",
         "4. Out of the above, projects worth how much money have already been sanctioned?",
-        "5. How many projects worth how much money are awaiting sanction?"
+        "5. How many projects worth how much money are awaiting sanction?",
         "6. Please provide details of First Appellate Authority under RTI Act 2005 with detailed postal and email address etc. for this RTI application.,"
     ],
     [ // Street and road works carried out
         "1. Please give a list of all the works related to improvement of roads or streets carried out in my area (please specify your area) since 1st April 2000. The list should contain the name of the work, Work Order No, actual date of start, actual date of completion, amount paid or payable, status of work, name of contractor and mode of improvement of that road or street.",
         "2. In each of the above works, please give a list of the streets or roads (mentioning from which house no to which house no was it repaired), which were repaired under that work, the length of repair and average width of repair in each street or road.",
         "3. For each of these works, please mention what was the guarantee clause, if any and whether it has been invoked so far.",
-        "4. After you have prepared the above information, I would like to inspect your measurement books andWork order registers related to these works to ensure that you have given complete information."
+        "4. After you have prepared the above information, I would like to inspect your measurement books andWork order registers related to these works to ensure that you have given complete information.",
         "5. Please provide details of First Appellate Authority under RTI Act 2005 with detailed postal and email address etc. for this RTI application.,"
     ],
     [ // All corruption complaints
@@ -282,7 +284,7 @@ var listQuestions = [
         "2. Which of the above complaints were rejected immediately and which ones were taken up for subsequent investigations? Date of initiating investigations or brief reasons for rejecting, as the case may be.",
         "3. Which one of those taken up for subsequent investigations, have been closed? Brief reasons for closing each one of them.",
         "4. According to various laws, guidelines, rules, procedures, manuals etc, in how much time should an investigation be completed after its receipt at CVC? Please provide copies of such guidelines, which prescribe time limits for various stages starting from receipt of a complaint up to filing of prosecution or imposition of penalties.",
-        "5. How many total cases have been received in the Commission since 1.4.02. How many of them were rejected immediately and which ones were taken up for subsequent investigations? In how many of those cases taken up for subsequent investigations, were the above time limits followed?"
+        "5. How many total cases have been received in the Commission since 1.4.02. How many of them were rejected immediately and which ones were taken up for subsequent investigations? In how many of those cases taken up for subsequent investigations, were the above time limits followed?",
         "6. Please provide details of First Appellate Authority under RTI Act 2005 with detailed postal and email address etc. for this RTI application.,"
     ],
     [ // School scholarship
@@ -300,7 +302,7 @@ var listQuestions = [
     [ // Ration Card
         "1. Provide the details/factual account of the ration and kerosene oil issued on my ration card per month, according to your records with the following particulars: 1) Month 2) Amount of ration and 3) kerosene oil issued 4) Date of providing the ration and kerosene oil 5) Amount paid for each of the above 6) Photocopy of the receipt of the above mentioned amount.", 
         "2. Provide an attested copy of the following records of the ration shop and kerosene oil depot of the last six months:1) Master card Register 2) Daily sale register 3) Daily stock register 4) Monthly stock register 5) Assessment book 6) Cash memo",
-        "3. How many complaints have been received against the above mentioned ration shop and the kerosene oil depot? Provide a list of such complaints with the following particulars: 1) Name of the complainant 2) Brief description of the complaint 3) Date of complaint 4) Description of the action taken on the complaint 5) Name, designation and address of the officer who took action on the complaint"
+        "3. How many complaints have been received against the above mentioned ration shop and the kerosene oil depot? Provide a list of such complaints with the following particulars: 1) Name of the complainant 2) Brief description of the complaint 3) Date of complaint 4) Description of the action taken on the complaint 5) Name, designation and address of the officer who took action on the complaint",
         "4. Please provide details of First Appellate Authority under RTI Act 2005 with detailed postal and email address etc. for this RTI application.,"
     ],
     [ // Old Age Pension
@@ -309,7 +311,7 @@ var listQuestions = [
         "3. Who are the Officers/employees responsible for the pension payments? Provide their details with name and designation.",
         "4. How many times are Old Age/Widow pension payments made in a year? What is the last date for the pension payments? When have the payments been made in the year 2005-2006?",
         "5. If my payment has not been done during ___________ . then which officer/employee is responsible for such discrepancy? Provide the details of those officers/employees with the details of their names, addresses and designation.",
-        "6. What action will be taken against such officer/employee who shirks from work and causes problems for the people? When will this action be taken?"
+        "6. What action will be taken against such officer/employee who shirks from work and causes problems for the people? When will this action be taken?",
         "7. Please provide details of First Appellate Authority under RTI Act 2005 with detailed postal and email address etc. for this RTI application.,"
     ]
 ];
