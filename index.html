@@ -26,7 +26,7 @@
           font-size: 1.0em;
           padding: 4px 8px;
           width: 90%;
-          color: #777;
+          color: #555;
           
           box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) inset;
           -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) inset;
@@ -175,17 +175,18 @@
                     <form name="hongkiat" id="hongkiat-form" method="post" action="#">  
                         <h2>From</h2>
                         <section id="aligned">  
-                            <input type="text" name="txtName" id="txtName" placeholder="Your name" autocomplete="off" tabindex="1" class="txtinput" autofocus>
-                            <input type="text" name="txtAddress1" id="txtAddress1" placeholder="Your Address 1" autocomplete="off" tabindex="2" class="txtinput">  
-                            <input type="text" name="txtAddress2" id="txtAddress2" placeholder="Your Address 2" autocomplete="off" tabindex="3" class="txtinput">  
-                            <input type="text" name="txtCity" id="txtCity" placeholder="Your City" autocomplete="off" tabindex="4" class="txtinput" style="width:30%; float:left;">  
-                            <input type="text" name="txtState" id="txtState" placeholder="Your State" autocomplete="off" tabindex="5" class="txtinput" style="width:30%; float:left; margin-left:2%">  
-                            <input type="text" name="txtPIN" id="txtPIN" placeholder="Your PIN Code" autocomplete="off" tabindex="6" class="txtinput" style="width:18%; float:left; margin-left:2%"> 
+                            <input type="text" name="txtName" id="txtName" placeholder="Your name" autocomplete="off" tabindex="1" class="txtinput" value="Name" autofocus>
+                            <input type="text" name="txtAddress1" id="txtAddress1" placeholder="Your Address 1" autocomplete="off" tabindex="2" value="adrs1" class="txtinput">  
+                            <input type="text" name="txtAddress2" id="txtAddress2" placeholder="Your Address 2" autocomplete="off" tabindex="3" value="adrs2" class="txtinput">  
+                            <input type="text" name="txtCity" id="txtCity" placeholder="Your City" autocomplete="off" tabindex="4" class="txtinput" value="city" style="width:30%; float:left;">  
+                            <input type="text" name="txtState" id="txtState" placeholder="Your State" autocomplete="off" tabindex="5" class="txtinput" value="state" style="width:30%; float:left; margin-left:2%">  
+                            <input type="text" name="txtPIN" id="txtPIN" placeholder="Your PIN Code" autocomplete="off" tabindex="6" class="txtinput" value="600015" style="width:18%; float:left; margin-left:2%"> 
                             <br />
                         </section>  
 
                         <h2>To</h2>
                         <section id="aligned">  
+                            Public Information Officer - Right to Information Act
                             <input type="text" name="txtPIODesignation" id="txtPIODesignation" placeholder="Designation of the PIO" autocomplete="off" tabindex="10" class="txtinput">  
                             <input type="text" name="txtPIOOffice" id="txtPIOOffice" placeholder="Office of Public Authority" autocomplete="off" tabindex="11" class="txtinput">  
                             <input type="text" name="txtPIOAddress1" id="txtPIOAddress1" placeholder="Address 1 of PIO" autocomplete="off" tabindex="12" class="txtinput">  
@@ -198,20 +199,16 @@
 
                         <h2>Subject matter of the Information</h2>
                         <section id="aligned">  
+                            Application under Right To Information Act, 2005
+                        </section>  
+
+                        <h2>Related detail (optional) </h2>
+                        <section id="aligned">  
                             <input type="text" name="txtSubject" id="txtSubject" placeholder="Status of my Passport application dated 18-05-2013" autocomplete="off" tabindex="20" class="txtinput">  
-                        </section>  
-
-                        <h2>Period to which the Information relates</h2>
-                        <section id="aligned">  
-                            <input type="text" name="txtPeriod" id="txtPeriod" placeholder="2010 to 2012" autocomplete="off" tabindex="25" class="txtinput">  
-                        </section>  
-
-                        <h2>Related detail</h2>
-                        <section id="aligned">  
                             <textarea rows=4 name="txtDetail" id="txtDetail" placeholder="I have an EPF account with my previous employer XYZ company based in Bangalore. I applied for withdrawal of my EPF account on dd/mm/yy, but I have been waiting for 2 yrs now. I would like to know the following things." autocomplete="off" tabindex="26" class="txtinput" ></textarea> 
                         </section>  
 
-                        <h2>Description of Information required</h2>
+                        <h2>Description of Information required (Questions)</h2>
                         <section id="infoList">  
                             <input type="text" name="txtInfo1" id="txtInfo1" placeholder="Name and Designation of the officer who is handling my complaint" autocomplete="off" tabindex="30" class="txtinput txtInformation">  
                             <input type="text" name="txtInfo2" id="txtInfo2" placeholder="Certified copy of Acknowledgement letter given to me, as per G.O. 114" autocomplete="off" tabindex="31" class="txtinput txtInformation">  
@@ -225,6 +222,12 @@
                             <input type="text" name="txtInfo10" id="txtInfo10" placeholder="Whom should I complain to in case I am not satisfied with the action taken on my complaint" autocomplete="off" tabindex="34" class="txtinput txtInformation">  
                         </section>  
 
+                        <h2>Period to which the Information relateso (optional) </h2 >
+                        <section id="aligned">  
+                            <input type="text" name="txtPeriod" id="txtPeriod" placeholder="2010 to 2012" autocomplete="off" tabindex="25" class="txtinput">  
+                        </section>  
+
+<!--
                         <h2>Whether the applicant claims exemption as below poverty line family</h2>
                         <section id="aligned">  
                             <input type="radio" name="radioPovery" id="radioPovertyYes" tabindex="80">  
@@ -232,15 +235,16 @@
                             <input type="radio" name="radioPovery" id="radioPovertyNo" checked="checked">  
                             <label for="radioPovertyNo">No</label>
                         </section>  
+-->
 
                         <h2>RTI Application charge</h2>
                         <section id="aligned">  
-                            <input type="radio" name="radioFee" id="radioFeePostalOrder" tabindex="85">  
-                            <label for="radioFeePostalOrder">Postal Order</label>
                             <input type="radio" name="radioFee" id="radioFeeCourtFee" checked ="checked">  
-                            <label for="radioFeeCourtFee">Court Fee Stamp</label>
+                            <label for="radioFeeCourtFee">Court Fee Stamp (To Tamil Nadu State Government)</label> <br/>
+                            <input type="radio" name="radioFee" id="radioFeePostalOrder" tabindex="85">  
+                            <label for="radioFeePostalOrder">Postal Order (To Central Governmental departments)</label> <br/>
                             <input type="radio" name="radioFee" id="radioFeeDD">  
-                            <label for="radioFeeDD">Demand Draft</label>
+                            <label for="radioFeeDD">Demand Draft (To any Public Authority)</label>
                         </section>  
 
                         <section id="buttons" style="margin-top: 20px">  
