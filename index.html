@@ -9,6 +9,7 @@
 
         <link rel="stylesheet" href="css/normalize.min.css">
         <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/jquery.reject.css">
         <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
 
         <style>
@@ -164,7 +165,7 @@
 
         <div class="header-container">
             <header class="wrapper clearfix">
-                <h1 class="title">Application for Information under the Right to Information Act, 2005</h1>
+                <h1 class="title">Application for Information under the Right to Information Act, 2005 (BETA)</h1>
             </header>
         </div>
 
@@ -172,6 +173,8 @@
             <div class="main wrapper clearfix">
                 <article>
 
+                    <a id="save" download="earth.txt" href="data:text/plain,mostly harmless&#10;">Save</a>
+ 
                     <form name="hongkiat" id="hongkiat-form" method="post" action="#">  
                         <h2>From</h2>
                         <section id="aligned">  
@@ -228,7 +231,7 @@
                             <input type="text" name="txtPeriod" id="txtPeriod" placeholder="2010 to 2012" autocomplete="off" tabindex="70" class="txtinput">  
                         </section>  
 
-                        <h2>Whether the applicant claims exemption as below poverty line family</h2>
+                        <h2>Whether the applicant claims exemption as below poverty line</h2>
                         <section id="aligned">  
                             <input type="radio" name="radioPovery" id="radioPovertyYes" tabindex="80">  
                             <label for="radioPovertyYes">Yes</label>
@@ -281,6 +284,7 @@
         <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 
         <script src="js/main.js"></script>
+        <script src="js/jquery.reject.min.js"></script>
         <script src="rtiLogic.js"></script>
 
         <script>

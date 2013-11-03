@@ -1,6 +1,16 @@
 function setup() {
 
-    console.log("setup");
+    //console.log("setup");
+
+    $.reject({
+        reject: {
+            msie: true, // Microsoft Internet Explorer
+            unknown: true, // Everything else
+        },
+        close: false,
+        imagePath: './img/'
+    }); // Customized Browsers
+
 
     $( "#txtName" ).focus(function() {
         $( "#tipText" ).empty();
@@ -36,7 +46,7 @@ function setup() {
     });
 
     $( "#txtPIODesignation" ).focus(function() {
-        $( "#tipText" ).text("OPTIONAL Field. In every Government office there is an officer designated as Public Information Officer (PIO) whose responsibility is to reply to RTI applications. The Designation of the PIO can be found by visiting corresponding department's web site and probing for links like 'RTI Contacts' / 'Right to Information;'. If you are not sure of the PIO, you can send it to your District Collector.");
+        $( "#tipText" ).text("OPTIONAL Field. In every Government office there is an officer designated as Public Information Officer (PIO) whose responsibility is to reply to RTI applications. The Designation of the PIO can be found by visiting corresponding department's web site and probing for links like 'RTI Contacts' / 'Right to Information;'. If you are not sure of the PIO, you can ignore this field.");
         $( "#tipContainer" ).offset({top: $(this).offset().top - 100});
     });
 
@@ -178,7 +188,7 @@ function setup() {
         generate();
     }); 
 
-    //generate();
+    //confirmrti();
 
 };
 
@@ -199,7 +209,35 @@ function updateQuestions(index) {
 
 };
 
+function confirmrti() {
+
+    setSaveFile("save", "rti.txt", "text/html");
+
+/*
+    $('<div></div>').appendTo('body')
+        .html('<div><h4>This will g</h4></div>')
+        .dialog({
+            modal: true, title: 'Delete message', zIndex: 10000, autoOpen: true,
+            width: 'auto', resizable: false,
+            buttons: {
+                "Yes": function () {
+                    updateQuestions(index);
+                    $(this).dialog("close");
+                },
+                "No": function () {
+                    $(this).dialog("close");
+                }
+            },
+            close: function (event, ui) {
+                $(this).remove();
+            }
+        });
+*/
+
+}
+
 function generate() {
+
     console.log("generate");
     var d = new Date();
     var curr_date = d.getDate();
@@ -221,7 +259,9 @@ function generate() {
     otherWindow.document.write($("#txtState").val() + " - " + $("#txtPIN").val()  + "<br/><br/>");
     otherWindow.document.write("<h4>To</h4>");
     otherWindow.document.write("Public Information Officer<br/>");
-    otherWindow.document.write($("#txtPIODesignation").val() + "<br/>");
+    if ( $("#txtPIODesignation").val() != "") {
+        otherWindow.document.write($("#txtPIODesignation").val() + "<br/>");
+    }
     otherWindow.document.write($("#txtPIOOffice").val() + "<br/>");
     otherWindow.document.write($("#txtPIOAddress1").val() + "<br/>");
     if ( $("#txtPIOAddress2").val() != "") {
@@ -260,6 +300,13 @@ function generate() {
     otherWindow.document.write( $( "#txtName" ).val() );
 
     otherWindow.document.write("</body></html>");
+}
+
+function setSaveFile(contents, file_name, mime_type) {
+    var a = document.getElementById('save');
+    mime_type = mime_type || 'application/octet-stream'; // text/html, image/png, et c
+    if (file_name) a.setAttribute('download', file_name);
+    a.href = 'data:'+ mime_type +';base64,'+ btoa(contents || '');
 }
 
 var listQuestions = [
