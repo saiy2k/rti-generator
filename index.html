@@ -103,7 +103,7 @@
           filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e4edbd', endColorstr='#95af36',GradientType=0 );
         }
 
-        #buttons #resetbtn {
+        #buttons .resetbtn {
           display: block;
           float: left;
           color: #515151;
@@ -155,8 +155,6 @@
           box-shadow: inset 0 1px 0 rgba(256,256,256,0.4),0 1px 3px rgba(0,0,0,0.5);
         }
 
-
-
         </style>
 
         <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
@@ -166,6 +164,7 @@
         <div class="header-container">
             <header class="wrapper clearfix">
                 <h1 class="title">Application for Information under the Right to Information Act, 2005 (BETA)</h1>
+                <h4 style="text-align: right"> <a href="http://grayfaceofindia.in/">Back to Gray Face of India</a> </h4>
             </header>
         </div>
 
@@ -173,8 +172,6 @@
             <div class="main wrapper clearfix">
                 <article>
 
-                    <a id="save" download="earth.txt" href="data:text/plain,mostly harmless&#10;">Save</a>
- 
                     <form name="hongkiat" id="hongkiat-form" method="post" action="#">  
                         <h2>From</h2>
                         <section id="aligned">  
@@ -252,6 +249,7 @@
                         <section id="buttons" style="margin-top: 20px">  
                             <input type="button" name="btnGenerate" id="btnGenerate" class="submitbtn" tabindex="100" value="Generate">  
                             <input type="reset" name="reset" id="resetbtn" class="resetbtn" value="Reset" tabindex="-1">  
+                            <a id="saveButton" type="reset" name="reset" class="resetbtn" tabindex="101" style="padding-top:14px; height:2em"> Save RTI </a>
                             <br style="clear:both;">  
                         </section>  
                     </form>  

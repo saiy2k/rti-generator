@@ -2,6 +2,8 @@ function setup() {
 
     //console.log("setup");
 
+    $( "#saveButton" ).hide();
+
     $.reject({
         reject: {
             msie: true, // Microsoft Internet Explorer
@@ -185,7 +187,7 @@ function setup() {
     });
 
     $( "#btnGenerate" ).click(function() {
-        generate();
+        confirmrti();
     }); 
 
     //confirmrti();
@@ -211,102 +213,94 @@ function updateQuestions(index) {
 
 function confirmrti() {
 
-    setSaveFile("save", "rti.txt", "text/html");
+    var str = generate();
 
-/*
-    $('<div></div>').appendTo('body')
-        .html('<div><h4>This will g</h4></div>')
-        .dialog({
-            modal: true, title: 'Delete message', zIndex: 10000, autoOpen: true,
-            width: 'auto', resizable: false,
-            buttons: {
-                "Yes": function () {
-                    updateQuestions(index);
-                    $(this).dialog("close");
-                },
-                "No": function () {
-                    $(this).dialog("close");
-                }
-            },
-            close: function (event, ui) {
-                $(this).remove();
-            }
-        });
-*/
+    console.log(str);
+
+    //var uriContent = "data:application/octet-stream," + encodeURIComponent(str);
+
+    //window.open(uriContent, 'rti.html');
+    //location.href = uriContent;
+
+    setSaveFile(str, "rti.html", "text/html");
+
+    //$( "#saveButton" ).show();
 
 }
 
 function generate() {
 
-    console.log("generate");
+    var str = "";
+
     var d = new Date();
     var curr_date = d.getDate();
     var curr_month = d.getMonth() + 1; //Months are zero based
     var curr_year = d.getFullYear();
     var ddate = curr_date + "-" + curr_month + "-" + curr_year;
-    var otherWindow             =   window.open("", "_blank");
-    otherWindow.document.write("<!DOCTYPE html><html>");
-    otherWindow.document.write("<head><style> h4 { padding: 0px; margin: 0px; } </style></head>")
-    otherWindow.document.write("<body><h3><center>Application for Information under the Right to Information Act, 2005</center></h3>");
-    otherWindow.document.write("<div style='text-align:right'>" + ddate + "</div>");
-    otherWindow.document.write("<h4>From</h4>");
-    otherWindow.document.write($("#txtName").val() + "<br/>");
-    otherWindow.document.write($("#txtAddress1").val() + "<br/>");
+    str += ("<!DOCTYPE html><html>");
+    str += ("<head><style> h4 { padding: 0px; margin: 0px; } </style></head>")
+    str += ("<body><h3><center>Application for Information under the Right to Information Act, 2005</center></h3>");
+    str += ("<pre style='text-align:right'> Date:                             </pre>");
+    str += ("<h4>From</h4>");
+    str += ($("#txtName").val() + "<br/>");
+    str += ($("#txtAddress1").val() + "<br/>");
     if ( $("#txtAddress2").val() != "") {
-        otherWindow.document.write($("#txtAddress2").val() + "<br/>");
+        str += ($("#txtAddress2").val() + "<br/>");
     }
-    otherWindow.document.write($("#txtCity").val() + "<br/>");
-    otherWindow.document.write($("#txtState").val() + " - " + $("#txtPIN").val()  + "<br/><br/>");
-    otherWindow.document.write("<h4>To</h4>");
-    otherWindow.document.write("Public Information Officer<br/>");
+    str += ($("#txtCity").val() + "<br/>");
+    str += ($("#txtState").val() + " - " + $("#txtPIN").val()  + "<br/><br/>");
+    str += ("<h4>To</h4>");
+    str += ("Public Information Officer<br/>");
     if ( $("#txtPIODesignation").val() != "") {
-        otherWindow.document.write($("#txtPIODesignation").val() + "<br/>");
+        str += ($("#txtPIODesignation").val() + "<br/>");
     }
-    otherWindow.document.write($("#txtPIOOffice").val() + "<br/>");
-    otherWindow.document.write($("#txtPIOAddress1").val() + "<br/>");
+    str += ($("#txtPIOOffice").val() + "<br/>");
+    str += ($("#txtPIOAddress1").val() + "<br/>");
     if ( $("#txtPIOAddress2").val() != "") {
-        otherWindow.document.write($("#txtPIOAddress2").val() + "<br/>");
+        str += ($("#txtPIOAddress2").val() + "<br/>");
     }
-    otherWindow.document.write($("#txtPIOCity").val() + "<br/>");
-    otherWindow.document.write($("#txtPIOState").val() + " - " + $("#txtPIOPIN").val()  + "<br/><br/>");
-    otherWindow.document.write("<h4>Subject</h4>");
-    otherWindow.document.write("Application under Right to Information Act, 2005<br/>");
-    otherWindow.document.write("<h4>Description of Information Required</h4>");
-    otherWindow.document.write($("#txtSubject").val() + "<br/>");
+    str += ($("#txtPIOCity").val() + "<br/>");
+    str += ($("#txtPIOState").val() + " - " + $("#txtPIOPIN").val()  + "<br/><br/>");
+    str += ("<h4>Subject</h4>");
+    str += ("Application under Right to Information Act, 2005<br/><br/>");
+    str += ("<h4>Description of Information Required</h4>");
     if ($("#txtDetail").val() != "") {
-        otherWindow.document.write($("#txtDetail").val() + "<br/><br/>");
+        str += ($("#txtDetail").val() + "<br/><br/>");
     } else {
-        otherWindow.document.write("<br/>");
+        str += ("<br/>");
     }   
     for (var i = 0; i < 10; i++) {
         var strQues =  $( "#txtInfo" + (i+1) ).val();
         if (strQues == "") {
             break;
         }
-        otherWindow.document.write( strQues + "<br/>");
+        str += ( "&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;" + strQues + "<br/><br/>");
     }
-    otherWindow.document.write("<br/>RTI Application fee of Rs. 10 ");
+    str += ("<br/>RTI Application fee of Rs. 10 </br>");
 
     if ( $( "#radioFeeCourtFee" ).is(":checked") ) {
-        otherWindow.document.write("is affixed as court fee Stamp");
+        str += ("is affixed as court fee Stamp");
     } else if ( $( "#radioFeePostalOrder" ).is(":checked") ) {
-        otherWindow.document.write("is enclosed in a Postal Order numbered __________________ and dated _____________");
+        str += ("is enclosed in a Postal Order numbered __________________ and dated _____________");
     } else if ( $( "#radioFeeDD" ).is(":checked") ) {
-        otherWindow.document.write("is enclosed in a Demand Draft numbered __________________ in the bank __________________");
+        str += ("is enclosed in a Demand Draft numbered __________________ in the bank __________________");
     }
 
-    otherWindow.document.write("<br/>");
-    otherWindow.document.write("<br/>Applicant,<br/><br/><br/><br/>");
-    otherWindow.document.write( $( "#txtName" ).val() );
+    str += ("<br/>");
+    str += ("<br/>Applicant,<br/><br/><br/><br/>");
+    str += ( $( "#txtName" ).val() );
 
-    otherWindow.document.write("</body></html>");
+    str += ("</body></html>");
+
+    return str;
 }
 
 function setSaveFile(contents, file_name, mime_type) {
-    var a = document.getElementById('save');
+    var a = document.getElementById('saveButton');
     mime_type = mime_type || 'application/octet-stream'; // text/html, image/png, et c
     if (file_name) a.setAttribute('download', file_name);
     a.href = 'data:'+ mime_type +';base64,'+ btoa(contents || '');
+    a.click();
 }
 
 var listQuestions = [
