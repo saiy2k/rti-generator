@@ -1,3 +1,21 @@
+/**
+Online RTI Generator
+grayfaceofindia.in
+saiy2k (http://saiy2k.blogspot.in)
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>
+*/
 function setup() {
 
     //console.log("setup");
@@ -22,12 +40,12 @@ function setup() {
 
     $( "#txtAddress1" ).focus(function() {
         $( "#tipText" ).empty();
-        $( "#tipText" ).text("Enter your address");
+        $( "#tipText" ).text("Enter your Address Line 1");
         $( "#tipContainer" ).offset({top: $(this).offset().top - 100});
     });
 
     $( "#txtAddress2" ).focus(function() {
-        $( "#tipText" ).text("Enter your address Line 2");
+        $( "#tipText" ).text("Enter your Address Line 2");
         $( "#tipContainer" ).offset({top: $(this).offset().top - 100});
         console.log("address 2");
     });
@@ -47,10 +65,12 @@ function setup() {
         $( "#tipContainer" ).offset({top: $(this).offset().top - 100});
     });
 
+    /**
     $( "#txtPIODesignation" ).focus(function() {
         $( "#tipText" ).text("OPTIONAL Field. In every Government office there is an officer designated as Public Information Officer (PIO) whose responsibility is to reply to RTI applications. The Designation of the PIO can be found by visiting corresponding department's web site and probing for links like 'RTI Contacts' / 'Right to Information;'. If you are not sure of the PIO, you can ignore this field.");
         $( "#tipContainer" ).offset({top: $(this).offset().top - 100});
     });
+    */
 
     $( "#txtPIOOffice" ).focus(function() {
         $( "#tipText" ).text("Name of the office, Eg., Taluk Office, Collector Office, RTO, Corporation of Chennai, BSNL Office, etc.,");
@@ -58,12 +78,12 @@ function setup() {
     });
 
     $( "#txtPIOAddress1" ).focus(function() {
-        $( "#tipText" ).text("Address 1");
+        $( "#tipText" ).text("Enter your Address Line 1");
         $( "#tipContainer" ).offset({top: $(this).offset().top - 100});
     });
 
     $( "#txtPIOAddress2" ).focus(function() {
-        $( "#tipText" ).text("Address 2");
+        $( "#tipText" ).text("Enter your Address Line 2");
         $( "#tipContainer" ).offset({top: $(this).offset().top - 100});
     });
 
@@ -160,7 +180,7 @@ function setup() {
     });
 
     $( "#radioPovertyYes" ).focus(function() {
-        $( "#tipText" ).text("If the applicant is below poverty line. then all information will be given at free of cost");
+        $( "#tipText" ).text("If the applicant is below poverty line, then all information will be given at free of cost");
         $( "#tipContainer" ).offset({top: $(this).offset().top - 100});
         $( "#feeSection" ).slideUp();
     });
@@ -172,7 +192,7 @@ function setup() {
     });
 
     $( "#radioFeeCourtFee" ).focus(function() {
-        $( "#tipText" ).text("Court Fee Stamps can be bought in Courts, Stamp Vendor, shops near Taluk offices, Registrar offices, etc.,. Affix the Stamp at top right of the RTI application, below the date.");
+        $( "#tipText" ).text("Court Fee Stamps can be bought in Courts, Stamp Vendor, shops near Taluk offices, Registrar offices, etc.,. Affix the Stamp at top right of the RTI application");
         $( "#tipContainer" ).offset({top: $(this).offset().top - 100});
     });
 
@@ -225,6 +245,24 @@ function confirmrti() {
     setSaveFile(str, "rti.html", "text/html");
 
     //$( "#saveButton" ).show();
+    $('<div></div>').appendTo('body')
+        .html('<div><h4>Your RTI is downloaded.<br/>Can you spend 2 minutes and give your feedback on this tool</h4></div>')
+        .dialog({
+            modal: true, title: 'Feedback please', zIndex: 10000, autoOpen: true,
+            width: 'auto', resizable: false,
+            buttons: {
+                "Yes": function () {
+                    window.open("https://docs.google.com/forms/d/1CKRwVQTTF0Z5hywUiqgFiG3d_Sf2ZTsi8YMhhudAClU/viewform", "_blank");
+                    $(this).dialog("close");
+                },
+                "No": function () {
+                    $(this).dialog("close");
+                }
+            },
+            close: function (event, ui) {
+                $(this).remove();
+            }
+        });
 
 }
 
@@ -251,9 +289,6 @@ function generate() {
     str += ($("#txtState").val() + " - " + $("#txtPIN").val()  + "<br/><br/>");
     str += ("<h4>To</h4>");
     str += ("Public Information Officer<br/>");
-    if ( $("#txtPIODesignation").val() != "") {
-        str += ($("#txtPIODesignation").val() + "<br/>");
-    }
     str += ($("#txtPIOOffice").val() + "<br/>");
     str += ($("#txtPIOAddress1").val() + "<br/>");
     if ( $("#txtPIOAddress2").val() != "") {
@@ -276,18 +311,18 @@ function generate() {
         }
         str += ( "&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;" + strQues + "<br/><br/>");
     }
-    str += ("<br/>RTI Application fee of Rs. 10 </br>");
+    str += ("<br/>RTI Application fee of Rs. 10 ");
 
     if ( $( "#radioFeeCourtFee" ).is(":checked") ) {
         str += ("is affixed as court fee Stamp");
     } else if ( $( "#radioFeePostalOrder" ).is(":checked") ) {
-        str += ("is enclosed in a Postal Order numbered __________________ and dated _____________");
+        str += ("is enclosed in Indian Postal Order numbered __________________ and dated _____________");
     } else if ( $( "#radioFeeDD" ).is(":checked") ) {
         str += ("is enclosed in a Demand Draft numbered __________________ in the bank __________________");
     }
 
     str += ("<br/>");
-    str += ("<br/>Applicant,<br/><br/><br/><br/>");
+    str += ("<br/>Applicant<br/><br/><br/><br/>");
     str += ( $( "#txtName" ).val() );
 
     str += ("</body></html>");
@@ -387,7 +422,7 @@ var listQuestions = [
 ];
 
 var listSubjects = [
-    "Status of withdrawal of my Employees’ Provident Fund (EPF) Account",
+    "Status of withdrawal of my Employees Provident Fund (EPF) Account",
     "Status of pending work in any government department on my complaint",
     "Enquiry on MLA Constituency Development Funds",
     "Complete list of all streets and road works carried out",
@@ -399,7 +434,7 @@ var listSubjects = [
 ];
 
 var listDetails = [
-    "I have an Employees’ Provident Fund (EPF) account with my previous employer ____________ (establishment name) establishment based in _____________ (City). I applied for withdrawal of my EPF account on _________ (dd/mm/yy), but I have been waiting for ____ (years) now. I would like to know the following information.",
+    "I have an Employees Provident Fund (EPF) account with my previous employer ____________ (establishment name) establishment based in _____________ (City). I applied for withdrawal of my EPF account on _________ (dd/mm/yy), but I have been waiting for ____ (years) now. I would like to know the following information.",
     "I made a complaint dated __________ (dd/mm/yy) for the following reason ______________. (Copy of complaint is attached). But no satisfactory action has been taken on my complaint so far. The RPAD receipt number is ___________________ (RTXXXXXXXXXXIN).",
     "Enquiry on MLA Constituency Development Funds spent by my MLA.",
     "Complete list of all streets and road works carried out in ______________ ward / road / village.",

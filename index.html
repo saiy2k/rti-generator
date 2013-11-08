@@ -1,4 +1,23 @@
 <!DOCTYPE html>
+<!--
+
+Online RTI Generator
+grayfaceofindia.in
+saiy2k (http://saiy2k.blogspot.in)
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>
+-->
 <html class="no-js">
     <head>
         <meta charset="utf-8">
@@ -164,7 +183,7 @@
         <div class="header-container">
             <header class="wrapper clearfix">
                 <h1 class="title">Application for Information under the Right to Information Act, 2005 (BETA)</h1>
-                <h4 style="text-align: right"> <a href="http://grayfaceofindia.in/">Back to Gray Face of India</a> </h4>
+                <h4 style="text-align: right"> Help us improve this tool by providing your valuable feedback @ <a href="https://docs.google.com/forms/d/1CKRwVQTTF0Z5hywUiqgFiG3d_Sf2ZTsi8YMhhudAClU/viewform">Feedback Form</a> ::  <a href="http://grayfaceofindia.in/">Back to Gray Face of India</a> </h4>
             </header>
         </div>
 
@@ -187,12 +206,12 @@
                         <h2>To</h2>
                         <section id="aligned">  
                             Public Information Officer
-                            <input type="text" name="txtPIODesignation" id="txtPIODesignation" placeholder="Designation of the PIO (optional)" autocomplete="off" tabindex="10" class="txtinput">  
-                            <input type="text" name="txtPIOOffice" id="txtPIOOffice" placeholder="Office of Public Authority" autocomplete="off" tabindex="11" class="txtinput">  
-                            <input type="text" name="txtPIOAddress1" id="txtPIOAddress1" placeholder="Address 1 of PIO" autocomplete="off" tabindex="12" class="txtinput">  
-                            <input type="text" name="txtPIOAddress2" id="txtPIOAddress2" placeholder="Address 2 of PIO" autocomplete="off" tabindex="13" class="txtinput">  
-                            <input type="text" name="txtPIOCity" id="txtPIOCity" placeholder="City of PIO" autocomplete="off" tabindex="14" class="txtinput" style="width:30%; float:left">  
-                            <input type="text" name="txtPIOState" id="txtPIOState" placeholder="State of PIO" autocomplete="off" tabindex="15" class="txtinput" style="width:30%; float:left; margin-left:2%">  
+                            <!--<input type="text" name="txtPIODesignation" id="txtPIODesignation" placeholder="Designation of the PIO (optional)" autocomplete="off" tabindex="10" class="txtinput"> -->
+                            <input type="text" name="txtPIOOffice" id="txtPIOOffice" placeholder="Office of Public Authority (PA)" autocomplete="off" tabindex="11" class="txtinput">  
+                            <input type="text" name="txtPIOAddress1" id="txtPIOAddress1" placeholder="Address 1 of PA" autocomplete="off" tabindex="12" class="txtinput">  
+                            <input type="text" name="txtPIOAddress2" id="txtPIOAddress2" placeholder="Address 2 of PA" autocomplete="off" tabindex="13" class="txtinput">  
+                            <input type="text" name="txtPIOCity" id="txtPIOCity" placeholder="City of PA" autocomplete="off" tabindex="14" class="txtinput" style="width:30%; float:left">  
+                            <input type="text" name="txtPIOState" id="txtPIOState" placeholder="State of PA" autocomplete="off" tabindex="15" class="txtinput" style="width:30%; float:left; margin-left:2%">  
                             <input type="text" name="txtPIOPIN" id="txtPIOPIN" placeholder="Pincode" autocomplete="off" tabindex="16" class="txtinput" style="width:18%; float:left; margin-left:2%">  
                             <br />
                         </section>  
@@ -204,7 +223,7 @@
 
                         <h2>Brief Description</h2>
                         <section id="aligned">  
-                            <input type="text" name="txtSubject" id="txtSubject" placeholder="Status of my Passport application dated 18-05-2013" autocomplete="off" tabindex="20" class="txtinput" style="background-image:url('img/downArrow.png'); background-repeat: no-repeat; background-position:right; background-size:5%">  
+                            <input type="text" name="txtSubject" id="txtSubject" placeholder="Status of withdrawal of my Employees Provident Fund (EPF) Account" autocomplete="off" tabindex="20" class="txtinput" style="background-image:url('img/downArrow.png'); background-repeat: no-repeat; background-position:right; background-size:5%">  
                             <textarea rows=4 name="txtDetail" id="txtDetail" placeholder="I have an EPF account with my previous employer XYZ company based in Bangalore. I applied for withdrawal of my EPF account on dd/mm/yy, but I have been waiting for 2 yrs now. I would like to know the following information." autocomplete="off" tabindex="26" class="txtinput" ></textarea> 
                         </section>  
 
@@ -225,7 +244,7 @@
 
                         <h2>Period to which the Information relates </h2 >
                         <section id="aligned">  
-                            <input type="text" name="txtPeriod" id="txtPeriod" placeholder="2010 to 2012" autocomplete="off" tabindex="70" class="txtinput">  
+                            <input type="text" name="txtPeriod" id="txtPeriod" placeholder="2010 to 2013" autocomplete="off" tabindex="70" class="txtinput">  
                         </section>  
 
                         <h2>Whether the applicant claims exemption as below poverty line</h2>
@@ -241,7 +260,7 @@
                             <input type="radio" name="radioFee" id="radioFeeCourtFee" checked ="checked">  
                             <label for="radioFeeCourtFee">Court Fee Stamp <i style="color:#666">(Tamil Nadu, Kerala, West Bengal)</i></label> <br/>
                             <input type="radio" name="radioFee" id="radioFeePostalOrder" tabindex="85">  
-                            <label for="radioFeePostalOrder">Postal Order <i style="color:#666">(To Central Government, Assam, Chandigarh, Delhi, Himachal Pradesh, Karnataka, Uttarakhand, Tripura, Mizoram, Puducherry, Meghalaya, Noida)</i></label> <br/>
+                            <label for="radioFeePostalOrder">Indian Postal Order <i style="color:#666">(To Central Government, Assam, Chandigarh, Delhi, Himachal Pradesh, Karnataka, Uttarakhand, Tripura, Mizoram, Puducherry, Meghalaya, Noida)</i></label> <br/>
                             <input type="radio" name="radioFee" id="radioFeeDD">  
                             <label for="radioFeeDD">Demand Draft <i style="color:#666">(Andaman and Nicobar, Goa, Jharkhand, Manipur, Nagaland)</i></label>
                         </section>  
@@ -249,7 +268,7 @@
                         <section id="buttons" style="margin-top: 20px">  
                             <input type="button" name="btnGenerate" id="btnGenerate" class="submitbtn" tabindex="100" value="Generate">  
                             <input type="reset" name="reset" id="resetbtn" class="resetbtn" value="Reset" tabindex="-1">  
-                            <a id="saveButton" type="reset" name="reset" class="resetbtn" tabindex="101" style="padding-top:14px; height:2em"> Save RTI </a>
+                            <a id="saveButton" class="resetbtn" tabindex="101" style="padding-top:14px; height:2em"> Save RTI </a>
                             <br style="clear:both;">  
                         </section>  
                     </form>  
@@ -274,6 +293,7 @@
         <div class="footer-container">
             <footer class="wrapper">
                 <h3>"If the deaf are to hear, the sound has to be very loud" - Bhagat Singh</h3>
+                <h4>This software is released under <a href="http://www.gnu.org/copyleft/gpl.html">GNU GPL V3 License</a>. Source Code available @ <a href="https://github.com/saiy2k/rti-generator">github</a></h4>
             </footer>
         </div>
 
