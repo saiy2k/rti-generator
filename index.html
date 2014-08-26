@@ -191,7 +191,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>
         <div class="main-container">
             <div class="main wrapper clearfix">
                 <article>
-
+                    <div id="langtxt"> Current Language:  </div> <a id="switchLang" href="#" onclick="toggleLang();"> Switch Language </a>
                     <form name="hongkiat" id="hongkiat-form" method="post" action="#">  
                         <h2>From</h2>
                         <section id="aligned">  
@@ -224,7 +224,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>
 
                         <h2>Brief Description</h2>
                         <section id="aligned">  
-                            <input type="text" name="txtSubject" id="txtSubject" placeholder="Status of withdrawal of my Employees Provident Fund (EPF) Account" autocomplete="off" tabindex="20" class="txtinput" style="background-image:url('img/downArrow.png'); background-repeat: no-repeat; background-position:right; background-size:5%">  
+                            <input type="text" name="txtSubject" id="txtSubject" placeholder="" autocomplete="off" tabindex="20" class="txtinput" style="background-image:url('img/downArrow.png'); background-repeat: no-repeat; background-position:right; background-size:5%">  
                             <textarea rows=4 name="txtDetail" id="txtDetail" placeholder="I have an EPF account with my previous employer XYZ company based in Bangalore. I applied for withdrawal of my EPF account on dd/mm/yy, but I have been waiting for 2 yrs now. I would like to know the following information." autocomplete="off" tabindex="26" class="txtinput" ></textarea> 
                         </section>  
 
@@ -312,8 +312,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>
 
         <script src="js/main.js"></script>
         <script src="js/jquery.reject.min.js"></script>
+        <script src="js/vendor/jquery.localisation.js"></script>
         <script src="rtiLogic.js"></script>
-
+        
         <script>
             var _gaq=[['_setAccount','UA-38433521-1'],['_trackPageview']];
             (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
