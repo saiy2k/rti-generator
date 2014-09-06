@@ -23,10 +23,9 @@ function setup() {
 
     //console.log("setup");
     
-    $("#langtxt").html ("Current Language:  " + (currentLang =='en'? 'English' : 'Tamil') );
-
     $.localise(['package'], {language: currentLang, loadBase: false, path: ['', 'js/i18n/']});
-
+    $("#langtxt").html ("Current Language:  " + (currentLang =='en'? englishLang : tamilLang ) );
+    
     $( "#saveButton" ).hide();
 
     $.reject({
@@ -41,34 +40,34 @@ function setup() {
 
     $( "#txtName" ).focus(function() {
         $( "#tipText" ).empty();
-        $( "#tipText" ).html("<ol><li>You should be a Citizen of India to file RTI Application</li><li>Legal entities can't file RTI.</li><li>But its possible for a citizen to apply RTI through address of a legal entity.</li><li>Unfortunately, this application is applicable only to the following regions: Tamil Nadu, Kerala, West Bengal, Chandigarh, Delhi, Himachal Pradesh, Karnataka, Uttarakhand, Tripura, Mizoram, Puducherry, Meghalaya, Noida, Andaman and Nicobar, Goa, Jharkhand, Manipur, Nagaland </li></ol>");
+        $( "#tipText" ).html(tipNameText);
         $( "#tipContainer" ).offset({top: $(this).offset().top - 100});
     });
 
     $( "#txtAddress1" ).focus(function() {
         $( "#tipText" ).empty();
-        $( "#tipText" ).text("Enter your Address Line 1");
+        $( "#tipText" ).text(tipAddr1Text);
         $( "#tipContainer" ).offset({top: $(this).offset().top - 100});
     });
 
     $( "#txtAddress2" ).focus(function() {
-        $( "#tipText" ).text("Enter your Address Line 2");
+        $( "#tipText" ).text(tipAddr2Text);
         $( "#tipContainer" ).offset({top: $(this).offset().top - 100});
         console.log("address 2");
     });
 
     $( "#txtCity" ).focus(function() {
-        $( "#tipText" ).text("Enter your city");
+        $( "#tipText" ).text(tipCityText);
         $( "#tipContainer" ).offset({top: $(this).offset().top - 100});
     });
 
     $( "#txtState" ).focus(function() {
-        $( "#tipText" ).text("Enter your State");
+        $( "#tipText" ).text(tipStateText);
         $( "#tipContainer" ).offset({top: $(this).offset().top - 100});
     });
 
     $( "#txtPIN" ).focus(function() {
-        $( "#tipText" ).text("Pin code");
+        $( "#tipText" ).text(tipPinText);
         $( "#tipContainer" ).offset({top: $(this).offset().top - 100});
     });
 
@@ -80,32 +79,32 @@ function setup() {
     */
 
     $( "#txtPIOOffice" ).focus(function() {
-        $( "#tipText" ).text("Name of the office, Eg., Taluk Office, Collector Office, RTO, Corporation of Chennai, BSNL Office, etc.,");
+        $( "#tipText" ).text(tipPIOText);
         $( "#tipContainer" ).offset({top: $(this).offset().top - 100});
     });
 
     $( "#txtPIOAddress1" ).focus(function() {
-        $( "#tipText" ).text("Enter your Address Line 1");
+        $( "#tipText" ).text(tipAddr1Text);
         $( "#tipContainer" ).offset({top: $(this).offset().top - 100});
     });
 
     $( "#txtPIOAddress2" ).focus(function() {
-        $( "#tipText" ).text("Enter your Address Line 2");
+        $( "#tipText" ).text(tipAddr2Text);
         $( "#tipContainer" ).offset({top: $(this).offset().top - 100});
     });
 
     $( "#txtPIOCity" ).focus(function() {
-        $( "#tipText" ).text("City of the PIO's office");
+        $( "#tipText" ).text(tipPIOCityText);
         $( "#tipContainer" ).offset({top: $(this).offset().top - 100});
     });
 
     $( "#txtPIOPIN" ).focus(function() {
-        $( "#tipText" ).text("Pin code of Public Authority");
+        $( "#tipText" ).text(tipPIOPinText);
         $( "#tipContainer" ).offset({top: $(this).offset().top - 100});
     });
 
     $( "#txtPIOState" ).focus(function() {
-        $( "#tipText" ).text("State of the PIO's office. For Himachal Pradesh, For each subject in respect of each year different application should be made");
+        $( "#tipText" ).text(tipPIOStateText);
         $( "#tipContainer" ).offset({top: $(this).offset().top - 100});
     });
     $( "#txtSubject" ).autocomplete({
@@ -131,7 +130,7 @@ function setup() {
 
              } else {
                 $('<div></div>').appendTo('body')
-                    .html('<div><h4>Change the questions as per the newly selected Subject:</h4></div>')
+                    .html('<div><h4>'+ changeQPopupText +'</h4></div>')
                     .dialog({
                         modal: true, title: 'Delete message', zIndex: 10000, autoOpen: true,
                         width: 'auto', resizable: false,
@@ -155,19 +154,19 @@ function setup() {
     });
 
     $( "#txtSubject" ).focus(function() {
-        $( "#tipText" ).text("Select from any of the predefined template or write your own");
+        $( "#tipText" ).text(tipSubjectText);
         $( "#tipContainer" ).offset({top: $(this).offset().top - 100});
     });
 
     $( "#txtPeriod" ).focus(function() {
         $(this).val($(this).attr("placeholder"));
-        $( "#tipText" ).text("Time Range. For example, 2000 to 2010; last financial year; March, 2013 to May, 2013, date of my complaint to present");
+        $( "#tipText" ).text(tipPeriodText);
         $( "#tipContainer" ).offset({top: $(this).offset().top - 100});
     });
 
     $( "#txtDetail" ).focus(function() {
         $(this).val($(this).attr("placeholder"));
-        $( "#tipText" ).text("Other details related to the RTI");
+        $( "#tipText" ).text(tipDetailText);
         $( "#tipContainer" ).offset({top: $(this).offset().top - 100});
     });
 
@@ -176,40 +175,40 @@ function setup() {
         var str, rnd;
         rnd = Math.random();
         if (rnd < 0.3) {
-            str = "Inquilab Zindabad";
+            str = tipRandom1Text;
         } else if (rnd < 0.6) {
-            str = "Vande Mataram";
+            str = tipRandom2Text;
         } else if (rnd < 1.0) {
-            str = "Jai Hind";
+            str = tipRandom3Text;
         }
-        $( "#tipText" ).text("Inquilab Zindabad");
+        $( "#tipText" ).text(str);
         $( "#tipContainer" ).offset({top: $(this).offset().top - 100});
     });
 
     $( "#radioPovertyYes" ).focus(function() {
-        $( "#tipText" ).text("If the applicant is below poverty line, then all information will be given at free of cost");
+        $( "#tipText" ).text(tipPovertyText);
         $( "#tipContainer" ).offset({top: $(this).offset().top - 100});
         $( "#feeSection" ).slideUp();
     });
 
     $( "#radioPovertyNo" ).focus(function() {
-        $( "#tipText" ).text("If not, application charge of Rs. 10.00 has to be paid through means given below");
+        $( "#tipText" ).text(tipPovertyNoText);
         $( "#tipContainer" ).offset({top: $(this).offset().top - 100});
         $( "#feeSection" ).slideDown();
     });
 
     $( "#radioFeeCourtFee" ).focus(function() {
-        $( "#tipText" ).text("Court Fee Stamps can be bought in Courts, Stamp Vendor, shops near Taluk offices, Registrar offices, etc.,. Affix the Stamp at top right of the RTI application");
+        $( "#tipText" ).text(tipCourtFeeText);
         $( "#tipContainer" ).offset({top: $(this).offset().top - 100});
     });
 
     $( "#radioFeePostalOrder" ).focus(function() {
-        $( "#tipText" ).text("A Postal order of Rs. 10.00 can be bought from Post Office and attached with the RTI Application.");
+        $( "#tipText" ).text(tipPostalOrderText);
         $( "#tipContainer" ).offset({top: $(this).offset().top - 100});
     });
 
     $( "#radioFeeDD" ).focus(function() {
-        $( "#tipText" ).text("Demand Draft can be drawn in favor of Public Authority and be attached with the RTI Application.");
+        $( "#tipText" ).text(tipDDText);
         $( "#tipContainer" ).offset({top: $(this).offset().top - 100});
     });
 
@@ -219,6 +218,8 @@ function setup() {
 
     //confirmrti();
     updateQuestions(listSubjectsindex);
+
+    angular.element(document.getElementById('mainBody')).scope().refreshAll();
 };
 
 function updateQuestions(index) {
@@ -255,7 +256,7 @@ function confirmrti() {
 
     //$( "#saveButton" ).show();
     $('<div></div>').appendTo('body')
-        .html('<div><h4>Your RTI is downloaded.<br/>Can you spend 2 minutes and give your feedback on this tool</h4></div>')
+        .html(confirmAlertText)
         .dialog({
             modal: true, title: 'Feedback please', zIndex: 10000, autoOpen: true,
             width: 'auto', resizable: false,
