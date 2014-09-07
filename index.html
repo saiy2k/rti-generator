@@ -29,171 +29,28 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>
 
         <link rel="stylesheet" href="css/normalize.min.css">
         <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/index.css">
         <link rel="stylesheet" href="css/jquery.reject.css">
         <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
 
-        <style>
-
-        /** the form elements **/
-        #hongkiat-form { box-sizing: border-box; }
-
-        #hongkiat-form .txtinput { 
-          display: block;
-          font-family: "Helvetica Neue", Arial, sans-serif;
-          border-style: solid;
-          border-width: 1px;
-          border-color: #dedede;
-          margin-bottom: 6px;
-          font-size: 1.0em;
-          padding: 4px 8px;
-          width: 90%;
-          color: #555;
-          
-          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) inset;
-          -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) inset;
-          -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) inset; 
-          
-          transition: border 0.15s linear 0s, box-shadow 0.15s linear 0s, color 0.15s linear 0s;
-          -webkit-transition: border 0.15s linear 0s, box-shadow 0.15s linear 0s, color 0.15s linear 0s;
-          -moz-transition: border 0.15s linear 0s, box-shadow 0.15s linear 0s, color 0.15s linear 0s;
-          -o-transition: border 0.15s linear 0s, box-shadow 0.15s linear 0s, color 0.15s linear 0s;
-        }
-
-        #hongkiat-form .txtinput:focus { 
-          color: #333;
-          border-color: rgba(41, 92, 161, 0.4);
-          
-          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) inset, 0 0 8px rgba(41, 92, 161, 0.6);
-          -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) inset, 0 0 8px rgba(41, 92, 161, 0.6);
-          -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) inset, 0 0 8px rgba(41, 92, 161, 0.6);
-          outline: 0 none; 
-        }
-
-        #buttons .submitbtn {
-          display: block;
-          float: left;
-          height: 3em;
-          padding: 0 1em;
-          border: 1px solid;
-          outline: 0;
-          font-weight: bold;
-          font-size: 1.3em;
-          color: #fff;
-          text-shadow: 0px 1px 0px #222;
-          white-space: nowrap;
-          word-wrap: normal;
-          vertical-align: middle;
-          cursor: pointer;
-          
-          -moz-border-radius: 2px;
-          -webkit-border-radius: 2px;
-          border-radius: 2px;
-          
-          border-color: #5e890a #5e890a #000;
-          
-          -moz-box-shadow: inset 0 1px 0 rgba(256,256,256, .35);
-          -ms-box-shadow: inset 0 1px 0 rgba(256,256,256, .35);
-          -webkit-box-shadow: inset 0 1px 0 rgba(256,256,256, .35);
-          box-shadow: inset 0 1px 0 rgba(256,256,256, .35);
-          
-          background-color: rgb(226,238,175);
-          background-image: -moz-linear-gradient(top, rgb(226,238,175) 3%, rgb(188,216,77) 3%, rgb(144,176,38) 100%);
-          background-image: -webkit-gradient(linear, left top, left bottom, color-stop(3%,rgb(226,238,175)), color-stop(3%,rgb(188,216,77)), color-stop(100%,rgb(144,176,38))); 
-          background-image: -webkit-linear-gradient(top, rgb(226,238,175) 3%,rgb(188,216,77) 3%,rgb(144,176,38) 100%);
-          background-image: -o-linear-gradient(top, rgb(226,238,175) 3%,rgb(188,216,77) 3%,rgb(144,176,38) 100%);
-          background-image: -ms-linear-gradient(top, rgb(226,238,175) 3%,rgb(188,216,77) 3%,rgb(144,176,38) 100%);
-          background-image: linear-gradient(top, rgb(226,238,175) 3%,rgb(188,216,77) 3%,rgb(144,176,38) 100%); 
-          filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e2eeaf', endColorstr='#90b026',GradientType=0 );
-        }
-
-        #buttons .submitbtn:hover, #buttons .submitbtn:active {
-          border-color: #7c9826 #7c9826 #000;
-          color: #fff;
-          
-          -moz-box-shadow: inset 0 1px 0 rgba(256,256,256,0.4),0 1px 3px rgba(0,0,0,0.5);
-          -ms-box-shadow: inset 0 1px 0 rgba(256,256,256,0.4),0 1px 3px rgba(0,0,0,0.5);
-          -webkit-box-shadow: inset 0 1px 0 rgba(256,256,256,0.4),0 1px 3px rgba(0,0,0,0.5);
-          box-shadow: inset 0 1px 0 rgba(256,256,256,0.4),0 1px 3px rgba(0,0,0,0.5);
-          
-          background: rgb(228,237,189);
-          background: -moz-linear-gradient(top, rgb(228,237,189) 2%, rgb(207,219,120) 3%, rgb(149,175,54) 100%); 
-          background: -webkit-gradient(linear, left top, left bottom, color-stop(2%,rgb(228,237,189)), color-stop(3%,rgb(207,219,120)), color-stop(100%,rgb(149,175,54))); 
-          background: -webkit-linear-gradient(top, rgb(228,237,189) 2%,rgb(207,219,120) 3%,rgb(149,175,54) 100%); 
-          background: -o-linear-gradient(top, rgb(228,237,189) 2%,rgb(207,219,120) 3%,rgb(149,175,54) 100%); background: -ms-linear-gradient(top, rgb(228,237,189) 2%,rgb(207,219,120) 3%,rgb(149,175,54) 100%); background: linear-gradient(top, rgb(228,237,189) 2%,rgb(207,219,120) 3%,rgb(149,175,54) 100%); 
-          filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e4edbd', endColorstr='#95af36',GradientType=0 );
-        }
-
-        #buttons .resetbtn {
-          display: block;
-          float: left;
-          color: #515151;
-          text-shadow: -1px 1px 0px #fff;
-          margin-right: 20px;
-          height: 3em;
-          padding: 0 1em;
-          outline: 0;
-          font-weight: bold;
-          font-size: 1.3em;
-          white-space: nowrap;
-          word-wrap: normal;
-          vertical-align: middle;
-          cursor: pointer;
-          
-          -moz-border-radius: 2px;
-          -webkit-border-radius: 2px;
-          border-radius: 2px;
-          
-          background-color: #fff;
-          background-image: -moz-linear-gradient(top, rgb(255,255,255) 2%, rgb(240,240,240) 2%, rgb(222,222,222) 100%);
-          background-image: -webkit-gradient(linear, left top, left bottom, color-stop(2%,rgb(255,255,255)), color-stop(2%,rgb(240,240,240)), color-stop(100%,rgb(222,222,222)));
-          background-image: -webkit-linear-gradient(top, rgb(255,255,255) 2%,rgb(240,240,240) 2%,rgb(222,222,222) 100%);
-          background-image: -o-linear-gradient(top, rgb(255,255,255) 2%,rgb(240,240,240) 2%,rgb(222,222,222) 100%);  background-image: -ms-linear-gradient(top, rgb(255,255,255) 2%,rgb(240,240,240) 2%,rgb(222,222,222) 100%);
-          background-image: linear-gradient(top, rgb(255,255,255) 2%,rgb(240,240,240) 2%,rgb(222,222,222) 100%); 
-          filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#dedede',GradientType=0 );
-          
-          border: 1px solid #969696;
-          
-          box-shadow: 0 1px 2px rgba(144, 144, 144, 0.4);
-          -moz-box-shadow: 0 1px 2px rgba(144, 144, 144, 0.4);
-          -webkit-box-shadow: 0 1px 2px rgba(144, 144, 144, 0.4);
-          
-          text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
-        }
-
-        #buttons #resetbtn:hover {
-          text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75); 
-          color: #818181;
-          
-          background-color: #fff;
-          background-image: -moz-linear-gradient(top, rgb(255,255,255) 2%, rgb(244,244,244) 2%, rgb(229,229,229) 100%);
-          background-image: -webkit-gradient(linear, left top, left bottom, color-stop(2%,rgb(255,255,255)), color-stop(2%,rgb(244,244,244)), color-stop(100%,rgb(229,229,229)));
-          background-image: -webkit-linear-gradient(top, rgb(255,255,255) 2%,rgb(244,244,244) 2%,rgb(229,229,229) 100%);background-image: -o-linear-gradient(top, rgb(255,255,255) 2%,rgb(244,244,244) 2%,rgb(229,229,229) 100%); background-image: -ms-linear-gradient(top, rgb(255,255,255) 2%,rgb(244,244,244) 2%,rgb(229,229,229) 100%); background-image: linear-gradient(top, rgb(255,255,255) 2%,rgb(244,244,244) 2%,rgb(229,229,229) 100%); 
-          filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e5e5e5',GradientType=0 );
-          
-          border-color: #aeaeae;
-          
-          box-shadow: inset 0 1px 0 rgba(256,256,256,0.4),0 1px 3px rgba(0,0,0,0.5);
-        }
-
-        </style>
-
         <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+
     </head>
-    <body>
+    <body id='mainBody' ng-app="rtiApp" ng-controller="rtiIndexController">
 
         <div class="header-container">
             <header class="wrapper clearfix">
-                <h1 class="title">Application for Information under the Right to Information Act, 2005 (BETA)</h1>
-                <h4 style="text-align: right"> Help us improve this tool by providing your valuable feedback @ <a href="https://docs.google.com/forms/d/1CKRwVQTTF0Z5hywUiqgFiG3d_Sf2ZTsi8YMhhudAClU/viewform">Feedback Form</a> ::  <a href="http://grayfaceofindia.in/">Back to Gray Face of India</a> </h4>
+                <h1 class="title">{{title}}</h1>
+                <h4 style="text-align: right"> {{tagLine}} <a href="https://docs.google.com/forms/d/1CKRwVQTTF0Z5hywUiqgFiG3d_Sf2ZTsi8YMhhudAClU/viewform">{{feedbackFormTxt}}</a> ::  <a href="http://grayfaceofindia.in/">{{backTxt}}</a> </h4>
             </header>
         </div>
 
         <div class="main-container">
             <div class="main wrapper clearfix">
                 <article>
-                    <div id="langtxt"> Current Language:  </div> <a id="switchLang" href="#" onclick="toggleLang();"> Switch Language </a>
+                    <div id="langtxt"> {{currentLangTxt}}  </div> <a id="switchLang" href="#" onclick="toggleLang();"> {{switchLangTxt}} </a>
                     <form name="hongkiat" id="hongkiat-form" method="post" action="#">  
-                        <h2>From</h2>
+                        <h2>{{fromTxt}}</h2>
                         <section id="aligned">  
                             <input type="text" name="txtName" id="txtName" placeholder="Your name" autocomplete="off" tabindex="1" class="txtinput" autofocus>
                             <input type="text" name="txtAddress1" id="txtAddress1" placeholder="Your Address 1" autocomplete="off" tabindex="2" class="txtinput">  
@@ -217,18 +74,18 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>
                             <br />
                         </section>  
 
-                        <h2>Subject matter of the Information</h2>
+                        <h2>{{subjectTxt}}</h2>
                         <section id="aligned">  
-                            Application under Right To Information Act, 2005
+                            {{applicationTxt}}
                         </section>  
 
-                        <h2>Brief Description</h2>
+                        <h2>{{briefDescTxt}}</h2>
                         <section id="aligned">  
                             <input type="text" name="txtSubject" id="txtSubject" placeholder="" autocomplete="off" tabindex="20" class="txtinput" style="background-image:url('img/downArrow.png'); background-repeat: no-repeat; background-position:right; background-size:5%">  
                             <textarea rows=4 name="txtDetail" id="txtDetail" placeholder="I have an EPF account with my previous employer XYZ company based in Bangalore. I applied for withdrawal of my EPF account on dd/mm/yy, but I have been waiting for 2 yrs now. I would like to know the following information." autocomplete="off" tabindex="26" class="txtinput" ></textarea> 
                         </section>  
 
-                        <h2>Description of Information required (Questions)</h2>
+                        <h2>{{descriptionTxt}}</h2>
                         <section id="infoList">  
                             <textarea rows=3 name="txtInfo1" id="txtInfo1" placeholder="1. Copy of inward register showing the date on which my PF/EPF claim application (Form 10 C) was received by your office." autocomplete="off" tabindex="30" class="txtinput txtInformation" ></textarea> 
                             <textarea rows=3 name="txtInfo2" id="txtInfo2" placeholder="2. Please let me know the balance in my account excluding interest" autocomplete="off" tabindex="30" class="txtinput txtInformation" ></textarea> 
@@ -243,12 +100,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>
                             <!--<input type="text" name="txtInfo1" id="txtInfo1" placeholder="Name and Designation of the officer who is handling my complaint" autocomplete="off" tabindex="30" class="txtinput txtInformation">  -->
                         </section>  
 
-                        <h2>Period to which the Information relates </h2 >
+                        <h2>{{periodTxt}}</h2 >
                         <section id="aligned">  
                             <input type="text" name="txtPeriod" id="txtPeriod" placeholder="2010 to 2013" autocomplete="off" tabindex="70" class="txtinput">  
                         </section>  
 
-                        <h2>Whether the applicant claims exemption as below poverty line</h2>
+                        <h2>{{claimBelowPovertyTxt}}</h2>
                         <section id="aligned">  
                             <input type="radio" name="radioPovery" id="radioPovertyYes" tabindex="80">  
                             <label for="radioPovertyYes">Yes</label>
@@ -257,24 +114,24 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>
                         </section>  
 
                         <section id="feeSection">  
-                        <h2>RTI Application charge</h2>
+                        <h2>{{chargeTxt}}</h2>
                             <input type="radio" name="radioFee" id="radioFeeCourtFee" checked ="checked">  
-                            <label for="radioFeeCourtFee">Court Fee Stamp <i style="color:#666">(Tamil Nadu, Kerala, West Bengal)</i></label> <br/>
+                            <label for="radioFeeCourtFee">{{courtFeestampTxt}} <i style="color:#666">{{courtFeeStatesTxt}}</i></label> <br/>
                             <input type="radio" name="radioFee" id="radioFeePostalOrder" tabindex="85">  
-                            <label for="radioFeePostalOrder">Indian Postal Order <i style="color:#666">(To Central Government, Assam, Chandigarh, Delhi, Himachal Pradesh, Karnataka, Uttarakhand, Tripura, Mizoram, Puducherry, Meghalaya, Noida)</i></label> <br/>
+                            <label for="radioFeePostalOrder">{{postalOrderTxt}}<i style="color:#666">{{postalOrderStatesTxt}}</i></label> <br/>
                             <input type="radio" name="radioFee" id="radioFeeDD">  
-                            <label for="radioFeeDD">Demand Draft <i style="color:#666">(Andaman and Nicobar, Goa, Jharkhand, Manipur, Nagaland)</i></label>
+                            <label for="radioFeeDD">{{ddTxt}}<i style="color:#666">{{ddStatesTxt}}</i></label>
                         </section>  
 
                         <section id="buttons" style="margin-top: 20px">  
                             <input type="button" name="btnGenerate" id="btnGenerate" class="submitbtn" tabindex="100" value="Generate">  
                             <input type="reset" name="reset" id="resetbtn" class="resetbtn" value="Reset" tabindex="-1">  
-                            <a id="saveButton" class="resetbtn" tabindex="101" style="padding-top:14px; height:2em"> Save RTI </a>
+                            <a id="saveButton" class="resetbtn" tabindex="101" style="padding-top:14px; height:2em"> {{saveRtiTxt}} </a>
                             <br style="clear:both;">  
                         </section>  
                         
                         <section id="social" style="margin-top: 20px">  
-                            <a style="border: 2px solid #000;" href="http://twitter.com/share" class="twitter-share-button" data-url="http://grayfaceofindia.in/online-rti-generator/" data-text="Application for Information under the Right to Information Act, 2005" data-count="horizontal" data-via="grayfaceofindia ">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script><br/>
+                            <a style="border: 2px solid #000;" href="http://twitter.com/share" class="twitter-share-button" data-url="http://grayfaceofindia.in/online-rti-generator/" data-text="Application for Information under the Right to Information Act, 2005" data-count="horizontal" data-via="grayfaceofindia ">{{tweetTxt}}</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script><br/>
                             <div style="border: 2px solid #000" class="g-plusone" data-annotation="inline" data-width="300"></div><br/>
                             <iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fgrayfaceofindia.in%2Fonline-rti-generator%2F&amp;width&amp;layout=standard&amp;action=like&amp;show_faces=true&amp;share=true&amp;height=80" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:80px;" allowTransparency="true"></iframe><br/>
                         </section>
@@ -284,13 +141,13 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>
                 </article>
 
                 <aside id="tipContainer">
-                    <h3>Tip</h3>
+                    <h3>{{tipTxt}}</h3>
                     <div id="tipText" style="display:block">
                     <ol>
-                        <li>You should be a Citizen of India to file RTI Application</li>
-                        <li>Legal entities can't file RTI.</li>
-                        <li>But its possible for a citizen to apply RTI through address of a legal entity.</li>
-                        <li>Unfortunately, this application is applicable only to the following regions: Tamil Nadu, Kerala, West Bengal, Chandigarh, Delhi, Himachal Pradesh, Karnataka, Uttarakhand, Tripura, Mizoram, Puducherry, Meghalaya, Noida, Andaman and Nicobar, Goa, Jharkhand, Manipur, Nagaland </li>
+                        <li>{{tip1Txt}}</li>
+                        <li>{{tip2Txt}}</li>
+                        <li>{{tip3Txt}}</li>
+                        <li>{{tip4Txt}}</li>
                     </ol>
                     </div>
                 </aside>
@@ -301,18 +158,19 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>
         <div class="footer-container">
             <footer class="wrapper">
                 <img src="img/rti-gen-logo.png" width="96" align="right" />
-                <h3>"If the deaf are to hear, the sound has to be very loud" - Bhagat Singh</h3>
-                <h4>This software is released under <a href="http://www.gnu.org/copyleft/gpl.html">GNU GPL V3 License</a>. Source Code available @ <a href="https://github.com/saiy2k/rti-generator">github</a></h4>
+                <h3>{{bhagatSinghQouteTxt}}</h3>
+                <h4>{{softLicStartTxt}}<a href="http://www.gnu.org/copyleft/gpl.html">{{gnuLicTxt}}</a>. {{srcCodeTxt}} @ <a href="https://github.com/saiy2k/rti-generator">{{githubTxt}}</a></h4>
             </footer>
         </div>
 
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.1.min.js"><\/script>')</script>
         <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 
         <script src="js/main.js"></script>
         <script src="js/jquery.reject.min.js"></script>
-        <script src="js/vendor/jquery.localisation.js"></script>
+        <script src="js/vendor/jquery.localisation.min.js"></script>
         <script src="rtiLogic.js"></script>
         
         <script>
